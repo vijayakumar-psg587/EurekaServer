@@ -13,6 +13,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   	
   	
@@ -118,5 +120,19 @@
   		<version>1.4.6.RELEASE</version>
   	</dependency>
   </dependencies>
+  
+  <build>
+  	<plugin>
+   <groupId>com.google.appengine</groupId>
+   <artifactId>appengine-maven-plugin</artifactId>
+   <version>1.9.56</version>
+   <configuration>
+         <enableJarClasses>true</enableJarClasses>
+         <port>8181</port>
+         <address>0.0.0.0</address>
+     </configuration>
+	</plugin>
+  	
+  </build>
   
 </project>
