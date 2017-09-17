@@ -2,11 +2,25 @@
 server:
   port: 9000
 
+#Managment server properties  - basically the actuator properties
+#use this as actuator service context http:8999/eurekaContextPath
+management:
+  context-path: /eurekaContenxtPath
+  port: 8999
+  info:
+    env:
+      enabled: true
+    git:
+      enabled: true
+      mode: simple
+
 eureka:
   instance:
-    hostname: EurekaInstance
+    hostname: localhost
+    health-check-url-path: ${management.context-path}/health
+    status-page-url-path:  ${management.context-path}/info
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/${spring.application.name}
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eurekaServer

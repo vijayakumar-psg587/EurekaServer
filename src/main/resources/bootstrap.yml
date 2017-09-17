@@ -2,3 +2,7 @@
 spring:
   application:
     name: EurekaSampleServer
+
+#use this to go to eureka server dashboard
+#Ex: http:9000/eurekaServerContext
+
